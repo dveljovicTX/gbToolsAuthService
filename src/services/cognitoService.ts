@@ -1,11 +1,11 @@
-import * as AmazonCognitoIdentity from 'amazon-cognito-identity-js';
+import {AuthenticationDetails, CognitoUserPool, CognitoUser} from 'amazon-cognito-identity-js';
 import {userPoolId, clientId} from '../config/cognitoConfig';
 
 class CognitoService {
-    private readonly userPool: AmazonCognitoIdentity.CognitoUserPool;
+    private readonly userPool: CognitoUserPool;
 
     constructor() {
-        this.userPool = new AmazonCognitoIdentity.CognitoUserPool({UserPoolId: userPoolId, ClientId: clientId});
+        this.userPool = new CognitoUserPool({UserPoolId: userPoolId, ClientId: clientId});
     }
 
     public async login(username: string, password: string) {
@@ -14,13 +14,13 @@ class CognitoService {
             Password: password
         };
 
-        const authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(loginDetails);
+        const authenticationDetails = new AuthenticationDetails(loginDetails);
 
         const userDetails = {
             Username: username,
             Pool: this.userPool
         };
-        const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userDetails);
+        const cognitoUser = new CognitoUser(userDetails);
 
         return new Promise((resolve, reject) => {
             cognitoUser.authenticateUser(authenticationDetails, {
@@ -44,7 +44,7 @@ class CognitoService {
             Username: username,
             Pool: this.userPool
         };
-        const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userDetails);
+        const cognitoUser = new CognitoUser(userDetails);
 
         return new Promise((resolve, reject) => {
             cognitoUser.forgotPassword({
@@ -59,7 +59,7 @@ class CognitoService {
             Username: username,
             Pool: this.userPool
         };
-        const cognitoUser = new AmazonCognitoIdentity.CognitoUser(userDetails);
+        const cognitoUser = new CognitoUser(userDetails);
 
         return new Promise((resolve, reject) => {
             cognitoUser.confirmPassword(verificationCode, newPassword, {
