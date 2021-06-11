@@ -7,6 +7,7 @@ plugins:
   - serverless-plugin-typescript
   - serverless-offline
   - serverless-dotenv-plugin
+  - serverless-plugin-include-dependencies
 
 custom:
   serverless-offline:
@@ -16,28 +17,28 @@ provider:
   name: aws
   runtime: nodejs14.x
   region: eu-central-1
-  timeout: 300
+  timeout: 30
   lambdaHashingVersion: 20201221
   stage: prod
 
 functions:
   login:
     handler: src/handlers/auth.login
-    memorySize: 128
+    memorySize: 512
     events:
       - http:
           method: POST
           path: /login
   forgotPassword:
     handler: src/handlers/auth.forgotPassword
-    memorySize: 128
+    memorySize: 256
     events:
       - http:
           method: POST
           path: /password/forgot
   resetPassword:
     handler: src/handlers/auth.resetPassword
-    memorySize: 128
+    memorySize: 256
     events:
       - http:
           method: POST
