@@ -26,10 +26,7 @@ class CognitoService {
             cognitoUser.authenticateUser(authenticationDetails, {
                 onSuccess: data => resolve(data.getIdToken().getJwtToken()),
                 newPasswordRequired: (userAttributes) => {
-                    // user attributes contain some non writable properties that must be removed
-                    delete userAttributes.email_verified;
-
-                    cognitoUser.completeNewPasswordChallenge(loginDetails.Password, userAttributes, {
+                    cognitoUser.completeNewPasswordChallenge(loginDetails.Password, {email: userAttributes.email}, {
                         onSuccess: data => resolve(data.getIdToken().getJwtToken()),
                         onFailure: err => reject(err)
                     });
