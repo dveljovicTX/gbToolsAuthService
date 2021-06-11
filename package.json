@@ -1,0 +1,23 @@
+{
+  "name": "gbToolsAuthService",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:tamedia-adtec/gbToolsAuthService.git",
+  "author": "Dusan Veljovic <dusan.veljovic@goldbach.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node_modules/.bin/serverless offline start --httpPort 4000",
+    "deploy": "NODE_ENV=production node_modules/.bin/serverless deploy"
+  },
+  "devDependencies": {
+    "serverless": "^2.44.0",
+    "serverless-offline": "^7.0.0",
+    "serverless-plugin-typescript": "^1.1.9",
+    "typescript": "^4.3.2"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^5.0.3",
+    "joi": "^17.4.0",
+    "serverless-dotenv-plugin": "^3.9.0"
+  }
+}

@@ -1,0 +1,44 @@
+service: gbToolsAuthService
+
+package:
+  excludeDevDependencies: false
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+  - serverless-dotenv-plugin
+
+custom:
+  serverless-offline:
+    useChildProcesses: true
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+  timeout: 300
+  lambdaHashingVersion: 20201221
+  stage: prod
+
+functions:
+  login:
+    handler: src/handlers/auth.login
+    memorySize: 128
+    events:
+      - http:
+          method: POST
+          path: /login
+  forgotPassword:
+    handler: src/handlers/auth.forgotPassword
+    memorySize: 128
+    events:
+      - http:
+          method: POST
+          path: /password/forgot
+  resetPassword:
+    handler: src/handlers/auth.resetPassword
+    memorySize: 128
+    events:
+      - http:
+          method: POST
+          path: /password/reset
