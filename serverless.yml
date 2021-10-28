@@ -29,6 +29,7 @@ functions:
       - http:
           method: POST
           path: /login
+          cors: true
   forgotPassword:
     handler: src/handlers/auth.forgotPassword
     memorySize: 256
@@ -36,6 +37,7 @@ functions:
       - http:
           method: POST
           path: /password/forgot
+          cors: true
   resetPassword:
     handler: src/handlers/auth.resetPassword
     memorySize: 256
@@ -43,3 +45,4 @@ functions:
       - http:
           method: POST
           path: /password/reset
+          cors: true

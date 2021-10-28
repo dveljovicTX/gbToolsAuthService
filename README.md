@@ -12,4 +12,4 @@ POST | /password/reset | {"username": "","verificationCode": "","newPassword": "
 ## Current production implementation
 Current production implementation is linked to `SlothToolPool` cognito user pool and
 is accessible through the following url
-`https://e6v2lr5o7h.execute-api.eu-central-1.amazonaws.com/prod`
+`https://nflmjjcghl.execute-api.eu-central-1.amazonaws.com/prod`
