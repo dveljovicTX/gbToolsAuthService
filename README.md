@@ -1,6 +1,6 @@
 # GB Tools Auth Service
 Exposed api service for access to cognito user pool.
-In order to use it with the other custom pools just add values to .env like described in .env.example add a copy of serverless.yml with another service name in order to deploy it.
+In order to use it with the other custom pools just add values to .env like described in .env.example and add a copy of serverless.yml with another service name in order to deploy it.
 
 ## Endpoints
 Method | Url | Payload
