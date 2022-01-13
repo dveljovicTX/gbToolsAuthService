@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "node_modules/.bin/serverless offline start --httpPort 4000",
-    "deploy": "NODE_ENV=production node_modules/.bin/serverless deploy"
+    "deploy:prod": "NODE_ENV=prod node_modules/.bin/serverless deploy --stage prod"
   },
   "devDependencies": {
     "serverless": "^2.44.0",

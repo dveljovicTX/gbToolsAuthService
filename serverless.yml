@@ -19,7 +19,7 @@ provider:
   region: eu-central-1
   timeout: 30
   lambdaHashingVersion: 20201221
-  stage: prod
+  stage: ${opt:stage}
 
 functions:
   login:
