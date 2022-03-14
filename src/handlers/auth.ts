@@ -14,8 +14,8 @@ const login = async (event: any) => {
     if (error) return httpBadRequest(error.message);
     const {username, password} = body;
     try {
-        const token = await cognitoService.login(username, password);
-        return httpOk({token});
+        const authData = await cognitoService.login(username, password);
+        return httpOk(authData);
     } catch (e) {
         return httpBadRequest(e);
     }

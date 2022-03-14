@@ -6,7 +6,7 @@
   "author": "Dusan Veljovic <dusan.veljovic@goldbach.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "node_modules/.bin/serverless offline start --httpPort 4000",
+    "dev": "node_modules/.bin/serverless offline start --httpPort 4000 --stage dev",
     "deploy:prod": "NODE_ENV=prod node_modules/.bin/serverless deploy --stage prod"
   },
   "devDependencies": {
