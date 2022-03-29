@@ -25,8 +25,8 @@ class CognitoService {
         return new Promise((resolve, reject) => {
             cognitoUser.authenticateUser(authenticationDetails, {
                 onSuccess: data => resolve({token: data.getIdToken().getJwtToken(), payload: data.getIdToken().payload}),
-                newPasswordRequired: (userAttributes) => {
-                    cognitoUser.completeNewPasswordChallenge(loginDetails.Password, {email: userAttributes.email}, {
+                newPasswordRequired: (_userAttributes) => {
+                    cognitoUser.completeNewPasswordChallenge(loginDetails.Password, {}, {
                         onSuccess: data => resolve({token: data.getIdToken().getJwtToken(), payload: data.getIdToken().payload}),
                         onFailure: err => reject(err)
                     });
