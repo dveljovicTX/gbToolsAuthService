@@ -9,10 +9,10 @@ COPY . .
 RUN npm install
 RUN npm run build
 
-RUN addgroup -g 11130 gb-poa
-RUN adduser -D -H -u 11130 -G gb-poa gb-poa
+RUN addgroup -g 11130 gb-bid-priority
+RUN adduser -D -H -u 11130 -G gb-bid-priority gb-bid-priority
 
-USER gb-poa
+USER gb-bid-priority
 
 CMD [ "node", "dist/server.js"]
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
