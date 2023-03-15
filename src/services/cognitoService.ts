@@ -26,7 +26,7 @@ class CognitoService {
             cognitoUser.authenticateUser(authenticationDetails, {
                 onSuccess: data => resolve({token: data.getIdToken().getJwtToken(), payload: data.getIdToken().payload}),
                 newPasswordRequired: (_userAttributes) => {
-                    cognitoUser.completeNewPasswordChallenge(loginDetails.Password, {}, {
+                    cognitoUser.completeNewPasswordChallenge(loginDetails.Password, {name: username, preferred_username: username}, {
                         onSuccess: data => resolve({token: data.getIdToken().getJwtToken(), payload: data.getIdToken().payload}),
                         onFailure: err => reject(err)
                     });
