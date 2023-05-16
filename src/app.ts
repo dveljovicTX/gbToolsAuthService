@@ -1,5 +1,6 @@
 import express from "express";
 import { Route } from "./routes/routeInteface";
+import cors from "cors";
 
 export class App {
     public app: express.Application;
@@ -20,6 +21,7 @@ export class App {
     }
 
     private initializeMiddlewares() {
+        this.app.use(cors());
         this.app.use(express.json());
     }
 

@@ -5,7 +5,6 @@ import {
     resetPasswordValidator,
     validateLoginSchema
 } from '../validators/authRequestsValidator';
-import * as console from 'console';
 
 export class AuthController {
     constructor(
