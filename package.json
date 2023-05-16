@@ -1,6 +1,6 @@
 {
   "name": "gb-tools-auth-service",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "repository": "git@github.com:tamedia-adtec/gbToolsAuthService.git",
   "author": "Dusan Veljovic <dusan.veljovic@goldbach.com>",
